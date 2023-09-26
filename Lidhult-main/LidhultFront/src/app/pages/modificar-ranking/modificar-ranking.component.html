@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta name="keywords"
+    coontent="competencia, clasificación, nivel, posición, puntaje, rendimiento, éxito,calificaciones, evaluaciones, notas, resultados, logros, desempeño, deberes, ejercicios, trabajos, actividades, proyectos, asignaciones, maestros, instructores, docentes, mentores, tutores, capacitadores,estudiantes, aprendices, cursantes, aspirantes, discípulos, usuarios, cursos, lecciones, materias, asignaturas, programas, planes de estudio,líder, campeón, mejor, superior, sobresaliente, destacado, exámenes, pruebas, certificaciones, diplomas, acreditaciones, titulaciones, desafíos, objetivos, metas, retos, proyectos finales, trabajos prácticos, expertos, especialistas, formadores, consultores, conferencistas, instructores virtuales, capacitación, aprendizaje, educación, desarrollo, crecimiento, superación, tutorías, seminarios, talleres, conferencias, webinars, lecciones en video">
+
+<div class="padre">
+    <div class="div3">
+        <div class="containeer">
+            <div class="warning" *ngIf="this.verAlerta == true">
+                Estas seguro que quieres borar la Tarea
+                <button mat-raised-button (click)="eliminarUser(this.stud_id, this.rank_id, 0)"
+                    color="primary">Si</button>
+                <button mat-raised-button (click)="cerrar()" color="primary">No</button>
+            </div>
+            <input type="number" class="input" placeholder="Añadir varios puntos" #puntosTotales
+                style="margin-right: 1%;">
+            <button class="btn btn-acciones" type="button"
+                (click)="suamrPuntosLista(puntosTotales.value)">Sumar</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Posicion</th>
+                        <th>Apellido</th>
+                        <th>Nombre</th>
+                        <th>Puntos</th>
+                        <th>Bonificacion</th>
+                        <th>Agregar Puntos</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usu of this.users.data; let i = index">
+                        <td class="rango">
+                            <label class="container">
+                                <input type="checkbox" (click)="anadirLista(usu.id)">
+                                <div class="checkmark"></div>
+                              </label>
+                        </td>
+                        <td class="rango">{{i + 1}}</td>
+                        <td class="rango">{{usu.surnames}}</td>
+                        <td class="rango">{{usu.name}}</td>
+                        <td class="rango">{{usu.puntuation}}</td>
+                        <td class="rango">
+                            <form [formGroup]="bonus">
+                                <select formControlName="bonus">
+                                    <option value="10">Positivo(+10)</option>
+                                    <option value="15">Respuesa Acertada(+15)</option>
+                                    <option value="20">Corregir Ejercico(+20)</option>
+                                </select>
+                            </form>
+                        </td>
+                        <td class="rango">
+                            <form [formGroup]="puntos">
+                                <div class="input2-container">
+                                    <input type="number" id="input2" required="" formControlName="puntos">
+                                    <label for="input2" class="label2">Sumar Puntuacion</label>
+                                    <div class="underline"></div>
+                                </div>
+                            </form>
+                        </td>
+                        <td class="rango">
+                            <div class="btn-container">
+                                <button class="btn-accion"
+                                    (click)="guardar(this.usu.id, this.usu.ranking_id, usu.puntuation, this.puntos.controls['puntos'].value, this.bonus.controls['bonus'].value)">
+                                    <i class="fa-solid fa-check fa-lg"></i>
+                                </button>
+                                <button class="btn-accion" (click)="eliminarUser(this.usu.id, this.usu.ranking_id,1)">
+                                    <i class="fa-solid fa-trash fa-lg" style="color: #FF0800;"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

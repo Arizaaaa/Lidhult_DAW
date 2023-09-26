@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+.padre {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* grid-template-rows: repeat(5, 1fr); */
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div3 {
+    grid-area: 2 / 1 / 6 / 13;
+}
+
+.containeer {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+}
+
+.containeer>header {
+    margin: 0 auto;
+    padding: 1em;
+    text-align: center;
+}
+
+.containeer>header h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 3em;
+    margin: 0;
+}
+
+.wrapper {
+    line-height: 1.5em;
+    margin: 0 0em 0 12.5em;
+    padding: 2em 0 3em;
+    width: 77%;
+    max-width: 2000px;
+    overflow: hidden;
+}
+
+.cont-filtro{
+    display: table-caption;
+    padding: 4% 0% 0% 0%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+}
+
+td,
+th {
+    border-bottom: 2px solid #ddd;
+    padding: 1em 1.5em;
+    text-align: left;
+}
+
+tbody th {
+    background-color: #2ea879;
+}
+
+/* tbody tr:nth-child(2n-1) {
+    background-color: #f5f5f5;
+    transition: all .125s ease-in-out;
+} */
+
+tbody tr:hover {
+    background-color: rgba(50, 98, 149, .3);
+}
+
+td.rango {
+    text-transform: capitalize;
+}
+
+.btn-acciones {
+    color: #fff !important;
+    background-color: #282936;
+    border-color: #282936;
+}
+
+.btn-acciones:hover {
+    color: #fff !important;
+    background-color: #09090c;
+    border-color: #000000;
+}
+
+/* Input puntuacion */
+
+.input {
+    line-height: 28px;
+    border: 2px solid transparent;
+    border-bottom-color: #fff;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: #0d0c22;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+   }
+   
+   .input:focus, .input:hover {
+    outline: none;
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    border-color: #fff;
+   }
+   
+   .input::placeholder {
+    color: #fff;
+   }
+   
+   .input:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+   }

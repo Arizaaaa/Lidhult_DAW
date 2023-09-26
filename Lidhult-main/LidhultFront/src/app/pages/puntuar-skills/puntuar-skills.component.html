@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<meta name="keywords" coontent="competencia, clasificación, nivel, posición, puntaje, rendimiento, éxito,calificaciones, evaluaciones, notas, resultados, logros, desempeño, deberes, ejercicios, trabajos, actividades, proyectos, asignaciones, maestros, instructores, docentes, mentores, tutores, capacitadores,estudiantes, aprendices, cursantes, aspirantes, discípulos, usuarios, cursos, lecciones, materias, asignaturas, programas, planes de estudio,líder, campeón, mejor, superior, sobresaliente, destacado, exámenes, pruebas, certificaciones, diplomas, acreditaciones, titulaciones, desafíos, objetivos, metas, retos, proyectos finales, trabajos prácticos, expertos, especialistas, formadores, consultores, conferencistas, instructores virtuales, capacitación, aprendizaje, educación, desarrollo, crecimiento, superación, tutorías, seminarios, talleres, conferencias, webinars, lecciones en video">
+
+<div class="padre">
+    <div class="div1">
+        <div class="div3">
+            <div class="containeer">
+                <header>
+                    <h1>Esta puntuando a: {{this.name}}</h1>
+                </header>
+                <button class="fondo-flecha" (click)="volver()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="flecha">
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path fill="currentColor"
+                        d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z"></path>
+                </svg></button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Insignia</th>
+                            <th>Nivel</th>
+                            <th>Experiencia</th>
+                            <th>Dar experiencia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let skill of this.skills; let i = index">
+                            <td class="rango">{{skill.name}}</td>
+                            <td class="rango">
+                                <img style="height: 60px;" src="http://127.0.0.1:8000{{skill.link}}">
+                            </td>
+                            <td class="rango">{{skill.level}}</td>
+                            <td class="rango">{{skill.puntuation}}</td>
+                            <td class="rango">
+                                <form action="" [formGroup]="signs">
+                                    <input type="number" formControlName="{{this.formName[i]}}">
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-acciones"
+                    [disabled]="this.signs.controls['habilidades_pensamiento'].value + this.signs.controls['gestion_emocional'].value +
+                                this.signs.controls['autonomia'].value + this.signs.controls['cooperación'].value + 
+                                this.signs.controls['responsabilidad'].value <= this.skills[0].skill_points ? false : true"
+                    [disabled]="signs.invalid" type="submit" (click)="actualizarSkills()">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

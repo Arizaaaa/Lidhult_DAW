@@ -1,0 +1,26 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="padre">
+  <div class="div1">
+    <div class="wrapper">
+      <nav>
+        <span *ngIf="this.authService.status == 0" class="logo">Lidhult</span>
+        <input type="checkbox" name="" id="toggle">
+        <label for="toggle"><i class="material-icons">menu</i></label>
+        <div class="menu">
+          <ul class="nav-links">
+            <li *ngIf="this.authService.status == 0">
+              <a (click)="register()">Register</a>
+            </li>
+            <li *ngIf="this.authService.status == 0">
+              <a (click)="login()">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- Opcion3 -->
+
+ 

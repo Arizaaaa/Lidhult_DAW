@@ -1,0 +1,9 @@
+<meta name="keywords" coontent="competencia, clasificación, nivel, posición, puntaje, rendimiento, éxito,calificaciones, evaluaciones, notas, resultados, logros, desempeño, deberes, ejercicios, trabajos, actividades, proyectos, asignaciones, maestros, instructores, docentes, mentores, tutores, capacitadores,estudiantes, aprendices, cursantes, aspirantes, discípulos, usuarios, cursos, lecciones, materias, asignaturas, programas, planes de estudio,líder, campeón, mejor, superior, sobresaliente, destacado, exámenes, pruebas, certificaciones, diplomas, acreditaciones, titulaciones, desafíos, objetivos, metas, retos, proyectos finales, trabajos prácticos, expertos, especialistas, formadores, consultores, conferencistas, instructores virtuales, capacitación, aprendizaje, educación, desarrollo, crecimiento, superación, tutorías, seminarios, talleres, conferencias, webinars, lecciones en video">
+<app-header></app-header>
+<app-sidebar *ngIf="this.authService.status != 0 && this.authService.status != undefined "></app-sidebar>
+<div class="warning" *ngIf="this.messageService.mensajeLogout == false">
+    Estas seguro que quieres cerrar sesion
+    <button mat-raised-button (click)="salir(1)" color="primary" >Si</button>
+    <button mat-raised-button (click)="salir(2)" color="primary" >No</button> 
+</div>
+<router-outlet></router-outlet>

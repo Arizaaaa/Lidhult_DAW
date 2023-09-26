@@ -1,0 +1,59 @@
+<meta name="keywords" coontent="competencia, clasificación, nivel, posición, puntaje, rendimiento, éxito,calificaciones, evaluaciones, notas, resultados, logros, desempeño, deberes, ejercicios, trabajos, actividades, proyectos, asignaciones, maestros, instructores, docentes, mentores, tutores, capacitadores,estudiantes, aprendices, cursantes, aspirantes, discípulos, usuarios, cursos, lecciones, materias, asignaturas, programas, planes de estudio,líder, campeón, mejor, superior, sobresaliente, destacado, exámenes, pruebas, certificaciones, diplomas, acreditaciones, titulaciones, desafíos, objetivos, metas, retos, proyectos finales, trabajos prácticos, expertos, especialistas, formadores, consultores, conferencistas, instructores virtuales, capacitación, aprendizaje, educación, desarrollo, crecimiento, superación, tutorías, seminarios, talleres, conferencias, webinars, lecciones en video">
+<meta name="keywords" coontent=" inicio de sesión, acceso a la cuenta, acceso restringido, registro,seguridad de inicio de sesión, autenticación, verificación, contraseñas seguras, protección de la cuentaseguridad de inicio de sesión, autenticación, verificación, contraseñas seguras, protección de la cuenta,plataforma de inicio de sesión, sistema de inicio de sesión, inicio de sesión con redes sociales,registro de usuario, registro de cuenta, formulario de registro, proceso de registro,gestión de cuentas, gestión de permisos, gestión de contraseñas, gestión de roles,mensajes de error de inicio de sesión, solución de problemas de inicio de sesión, problemas comunes de inicio de sesión">
+
+<!-- <div class="padre">
+  <div class="div3">
+    <mat-card>
+      <mat-card-content>
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
+          <h2>Log In</h2>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Email or Nick" name="text" formControlName="text">
+            <mat-error>
+              Please provide a valid nick or email
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="password" placeholder="Contraseña" name="contraseña" formControlName="password">
+            <mat-error>
+              Please provide a valid password
+            </mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary">Login</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div> -->
+
+<!-- Opcion 1 -->
+<div class="warning" *ngIf="this.messageService.mensajeLogin == false">
+  No a podido entrar compruebe si las credenciales son correctas
+  <button mat-raised-button (click)="cerrar()" color="warn">X</button>
+</div>
+<div class="padre">
+  <div class="div3">
+    <div class="center">
+      <div class="borde">
+        <h1>Login</h1>
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
+          <div class="txt_field">
+            <input matInput type="text" name="text" formControlName="text">
+            <span></span>
+            <label>Email or Nick</label>
+          </div>
+          <div class="txt_field">
+            <input matInput type="password" name="contraseña" formControlName="password">
+            <span></span>
+            <label>Contraseña</label>
+          </div>
+          <input type="submit" value="Login">
+          <div class="register_link">
+            Crear una cuenta
+            <a (click)="register()">Signup</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

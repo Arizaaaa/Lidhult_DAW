@@ -1,0 +1,135 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<div class="padre" *ngIf="this.ver ==  false">
+    <div class="div1">
+        <div class="cont-titulo">
+            <h1 id="titulo">Rankings</h1>
+        </div>
+        <div style="margin-bottom: 2%;">
+            <button class="btn-unir" (click)="showModal()">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                        <path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path>
+                    </svg> Unirte a ranking
+                </span>
+            </button>
+        </div>
+        <div class="div2">
+            <div class="card" style="width: 18rem;" *ngFor="let ran of this.rankings">
+                <div class="card-body">
+                    <div class="card-title">
+                        <div>
+                            <h2>
+                                {{ran.name}}
+                            </h2>
+                            <button class="btn-entrar learn-more" (click)="verRanking(ran.id)">
+                                <span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">Entrar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="padre" *ngIf="this.ver == true">
+    <div class="div1">
+        <button class="fondo-flecha" (click)="volver()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                class="flecha">
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path fill="currentColor"
+                    d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z"></path>
+            </svg></button>
+        <div class="div6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link {{this.activeRankingi}}" id="ranking-tab" data-toggle="tab" role="tab"
+                        aria-controls="ranking" aria-selected="true" (click)="verRankings()">Ranking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{this.activeTarea}}" id="tareas-tab" data-toggle="tab" role="tab"
+                        aria-controls="tareas" (click)="verTarea()" aria-selected="false">Tareas</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade {{this.showActiveRanking}}" id="ranking" role="tabpanel"
+                    aria-labelledby="ranking-tab">
+                    <div class="padre" *ngIf="this.ver ==  true">
+                        <div class="div3">
+                            <div class="containeer">
+                                <header>
+                                    <h1>{{this.nombre}}</h1>
+                                </header>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="visibility: hidden;">Skills</th>
+                                            <th>Posición</th>
+                                            <th>Nombre</th>
+                                            <th>Puntos</th>
+                                            <th>Insignias</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let usu of this.users.data; let i = index">
+                                            <td class="rango"><button class="btn btn-acciones" *ngIf="this.authService.user.data[0].id != usu.id"
+                                                    (click)="puntuarSkills(usu.id)">Puntuar</button></td>
+                                            <td class="rango">{{i + 1}}</td>
+                                            <td class="rango">{{usu.name}}</td>
+                                            <td class="rango">{{usu.puntuation}}</td>
+                                            <td class="rango mt">
+                                                <div class="cont-insignias">
+                                                    <div *ngFor="let sign of this.users.signs; let j = index">
+
+                                                        <button type="button" *ngIf="sign.student_id == usu.id" (click)="verModal(sign.sign_id, j)" class="tooltip">
+                                                            <img style="height: 60px; margin-right:5px;" src="http://127.0.0.1:8000{{sign.link}}" />
+                                                            <span class="tooltiptext fontsize">
+                                                                <p class="fontsize">Insignia:{{this.users.signs[j].name}}</p>
+                                                                <p class="fontsize">Exp: {{this.users.signs[j].puntuation}} </p>
+                                                                <p class="fontsize">Lvl: {{this.users.signs[j].level}}</p>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade {{this.showActiveTarea}}" id="tareas" role="tabpanel"
+                    aria-labelledby="tareas-tab">
+                    <app-tareas-alumnos></app-tareas-alumnos>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModals" class="modals" *ngIf="this.modalActive == false">
+
+    <div class="modals-content">
+        <span class="close" (click)="cerrarModal()">&times;</span>
+        <div class="container-content">
+            <h1><u>{{this.users.signs[this.skillPosition].name}}</u></h1>
+            <p>{{this.softSkill[0]}}</p>
+            <div class="container-ul">
+                <ul *ngFor="let skill of this.softSkill; let i = index">
+                    <div *ngIf="i != 0">
+                        <li>{{skill}}</li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

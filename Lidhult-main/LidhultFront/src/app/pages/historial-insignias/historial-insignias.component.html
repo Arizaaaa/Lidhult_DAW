@@ -1,0 +1,65 @@
+<meta name="keywords"
+    coontent="competencia, clasificación, nivel, posición, puntaje, rendimiento, éxito,calificaciones, evaluaciones, notas, resultados, logros, desempeño, deberes, ejercicios, trabajos, actividades, proyectos, asignaciones, maestros, instructores, docentes, mentores, tutores, capacitadores,estudiantes, aprendices, cursantes, aspirantes, discípulos, usuarios, cursos, lecciones, materias, asignaturas, programas, planes de estudio,líder, campeón, mejor, superior, sobresaliente, destacado, exámenes, pruebas, certificaciones, diplomas, acreditaciones, titulaciones, desafíos, objetivos, metas, retos, proyectos finales, trabajos prácticos, expertos, especialistas, formadores, consultores, conferencistas, instructores virtuales, capacitación, aprendizaje, educación, desarrollo, crecimiento, superación, tutorías, seminarios, talleres, conferencias, webinars, lecciones en video">
+<meta name="keywords"
+    coontent="secuencia, orden, fechas, eventos, sucesos, etapas, contexto, origen, raíces, precedentes, influencias, tradiciones,desarrollo, cambios, transformaciones, progreso, avances, retrocesos,consecuencias, efectos, repercusiones, huella, legado, importancia,estudios, análisis, fuentes, documentos, arqueología, genealogí,figuras, líderes, personajes, personajes históricos, héroes, villanos">
+<div class="padre">
+    <div class="div3">
+        <div class="containeer">
+            <div class="cont-filtro">
+                <table>
+                    <tbody>
+                        <tr>  
+                            <td class="rango"><input type="text" class="input" [(ngModel)]='evaluator' placeholder="Evaluador" #puntosTotales style="margin-right: 1%;"></td>
+                            <td class="rango"><input type="text" class="input" [(ngModel)]='evaluated' placeholder="Evaluado" #puntosTotales style="margin-right: 1%;"></td>
+                            <td class="rango"><input type="text" class="input" [(ngModel)]='skillName' placeholder="Habilidad" #puntosTotales style="margin-right: 1%;"></td>
+                            <td class="rango"> 
+                                <mat-form-field>
+                                <mat-label>Fecha Inicio</mat-label>
+                                <input matInput [matDatepicker]="picker" formControlName="date" [(ngModel)]='firstDate'>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </td>
+                            <td class="rango">
+                                <mat-form-field>
+                                    <mat-label>Fecha Final</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="date" [(ngModel)]='lastDate'>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </td>
+                            <td class="rango"><button class="btn btn-acciones" (click)="filtrar()">Filtrar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Evaluador</th>
+                        <th>Evaluado</th>
+                        <th>Puntos Sumada</th>
+                        <th>Skill</th>
+                        <th>Lvl</th>
+                        <th>Fecha</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let linea of this.historial">
+                        <td class="rango">{{linea.evaluator_name}}</td>
+                        <td class="rango">{{linea.evaluated_name}}</td>
+                        <td class="rango">{{linea.points}}</td>
+                        <td class="rango">{{linea.skill_name}}</td>
+                        <td class="rango">{{linea.level}}</td>
+                        <td class="rango">{{linea.created_at}}</td>
+                        <td class="rango">
+                            <button class="btn btn-acciones" type="submit" (click)="borrar(linea)"
+                                [disabled]="this.event ? true:false">Cancelar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

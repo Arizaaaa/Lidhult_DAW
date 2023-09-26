@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta name="keywords"
+    coontent="competencia, clasificación, nivel, posición, puntaje, rendimiento, éxito,calificaciones, evaluaciones, notas, resultados, logros, desempeño, deberes, ejercicios, trabajos, actividades, proyectos, asignaciones, maestros, instructores, docentes, mentores, tutores, capacitadores,estudiantes, aprendices, cursantes, aspirantes, discípulos, usuarios, cursos, lecciones, materias, asignaturas, programas, planes de estudio,líder, campeón, mejor, superior, sobresaliente, destacado, exámenes, pruebas, certificaciones, diplomas, acreditaciones, titulaciones, desafíos, objetivos, metas, retos, proyectos finales, trabajos prácticos, expertos, especialistas, formadores, consultores, conferencistas, instructores virtuales, capacitación, aprendizaje, educación, desarrollo, crecimiento, superación, tutorías, seminarios, talleres, conferencias, webinars, lecciones en video">
+
+<div class="padre">
+    <div class="div3">
+        <div class="containeer">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre Tarea</th>
+                        <th>Nombre Alumno</th>
+                        <th>Descargar</th>
+                        <th>Fecha de entrega</th>
+                        <th>Puntuacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tarea of this.tasks; let i = index">
+                        <td class="rango">
+                            {{tarea.name}}
+                        </td>
+                        <td class="rango">
+                            {{this.tarea.nick}}
+                        </td>
+                        <td class="rango">
+                            <a href="http://localhost:8000/task/{{tarea.link}}" target="_blank">Descargar Entrega</a>
+                        </td>
+                        <td class="rango">
+                            {{tarea.date}}
+                        </td>
+                        <td class="rango">
+                            <form
+                                *ngIf="tarea.puntuation == 0 || this.ver == false && this.id_task == tarea.task_id && tarea.student_id == this.id_student "
+                                [formGroup]="nota" style="padding-bottom: 3%;">
+                                <div class="input2-container">
+                                    <input type="number" id="input2" placeholder="0/100" formControlName="puntos">
+                                    <div class="underline"></div>
+                                </div>
+                            </form>
+                            <p *ngIf="tarea.puntuation != 0 || this.ver == true">{{tarea.puntuation}}/100</p>
+                            <button *ngIf="tarea.puntuation == 0" class="btn btn-acciones"
+                                (click)="puntuar(tarea.id, tarea.student_id)">Guardar</button>
+                            <button class="btn btn-acciones"
+                                *ngIf=" tarea.puntuation != 0 && (this.id_task != tarea.task_id || tarea.student_id != this.id_student)"
+                                (click)="verGuardar(tarea.task_id, tarea.student_id) ">Modificar</button>
+                            <button class="btn-accion"
+                                *ngIf="this.id_task == tarea.task_id && tarea.student_id == this.id_student"
+                                (click)="puntuar(tarea.id, tarea.student_id)"><i
+                                    class="fa-solid fa-check fa-lg"></i></button>
+                            <button class="btn-accion"
+                                *ngIf="this.id_task == tarea.task_id && tarea.student_id == this.id_student"
+                                (click)="cancelar()"> <i class="fa-solid fa-xmark fa-lg"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

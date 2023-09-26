@@ -1,0 +1,69 @@
+<meta name="keywords" coontent="competencia, clasificación, nivel, posición, puntaje, rendimiento, éxito,calificaciones, evaluaciones, notas, resultados, logros, desempeño, deberes, ejercicios, trabajos, actividades, proyectos, asignaciones, maestros, instructores, docentes, mentores, tutores, capacitadores,estudiantes, aprendices, cursantes, aspirantes, discípulos, usuarios, cursos, lecciones, materias, asignaturas, programas, planes de estudio,líder, campeón, mejor, superior, sobresaliente, destacado, exámenes, pruebas, certificaciones, diplomas, acreditaciones, titulaciones, desafíos, objetivos, metas, retos, proyectos finales, trabajos prácticos, expertos, especialistas, formadores, consultores, conferencistas, instructores virtuales, capacitación, aprendizaje, educación, desarrollo, crecimiento, superación, tutorías, seminarios, talleres, conferencias, webinars, lecciones en video">
+
+<app-select *ngIf="this.authService.prof == true && this.authService.stud == true"></app-select>
+
+<div class="padre" *ngIf="this.authService.prof == false || this.authService.stud == false">
+    <div class="div3">
+        <div class="warning" *ngIf="this.messageService.mensajeRegister == false">
+            El email o el nick ya existen, por favor elija otro, el nick no puede contener caracteres especiales.
+            <button mat-raised-button (click)="cerrar()" color="warn">X</button>
+        </div>
+        <div class="center">
+            <div class="borde">
+                <form (ngSubmit)="register()" [formGroup]="registerForm">
+                    <h2>Register</h2>
+                    <mat-form-field>
+                        <mat-label>Nick</mat-label>
+                        <input matInput placeholder="Nick" name="nick" formControlName="nick">
+                    </mat-form-field>
+                    <mat-error *ngIf="registerForm.controls['name'].hasError('invalidName')">
+                        Special characters not allowed!
+                    </mat-error>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" name="email" formControlName="email">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput type="password" placeholder="Contraseña" name="contraseña" formControlName="con">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Confirma la contraseña</mat-label>
+                        <input matInput type="password" placeholder="Contraseña" name="contraseña" formControlName="conValidate">
+                    </mat-form-field>
+                    <div *ngIf="registerForm.errors?.['passwordMismatchError']">
+                        <small class="red">Password mismatch</small>
+                    </div>
+                    <mat-form-field>
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="Nombre" name="nombre" formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field class="width">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput placeholder="Apellido" name="apellido" formControlName="surname">
+                    </mat-form-field>
+                    <mat-form-field class="width" *ngIf="this.authService.stud == false">
+                        <mat-label>Centro</mat-label>
+                        <input matInput placeholder="Ilerna" name="centro" formControlName="date">
+                    </mat-form-field>
+                    <mat-form-field *ngIf="this.authService.prof == false">
+                        <mat-label>Fecha de nacimiento</mat-label>
+                        <input matInput [matDatepicker]="picker" placeholder="Elija una fecha" formControlName="date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-card-actions>
+                        <button [disabled]="!this.registerForm">REGISTER</button>
+                    </mat-card-actions>
+                    <div class="register_link">
+                        ¿Ya tienes una cuenta?
+                        <a (click)="login()">Login</a>
+                    </div>
+                    <div class="register_link">
+                        <a (click)="selector()">Volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

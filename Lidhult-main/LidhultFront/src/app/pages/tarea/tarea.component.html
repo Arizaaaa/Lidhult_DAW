@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta name="keywords"
+    coontent="competencia, clasificación, nivel, posición, puntaje, rendimiento, éxito,calificaciones, evaluaciones, notas, resultados, logros, desempeño, deberes, ejercicios, trabajos, actividades, proyectos, asignaciones, maestros, instructores, docentes, mentores, tutores, capacitadores,estudiantes, aprendices, cursantes, aspirantes, discípulos, usuarios, cursos, lecciones, materias, asignaturas, programas, planes de estudio,líder, campeón, mejor, superior, sobresaliente, destacado, exámenes, pruebas, certificaciones, diplomas, acreditaciones, titulaciones, desafíos, objetivos, metas, retos, proyectos finales, trabajos prácticos, expertos, especialistas, formadores, consultores, conferencistas, instructores virtuales, capacitación, aprendizaje, educación, desarrollo, crecimiento, superación, tutorías, seminarios, talleres, conferencias, webinars, lecciones en video">
+
+<div class="padre">
+    <div class="div3">
+        <div class="containeer">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Fecha de entrega</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rango">
+                            <form [formGroup]="tarea">
+                                <div class="input2-container">
+                                    <input type="text" id="input2" required="" formControlName="name">
+                                    <label for="input2" class="label2">Nombre</label>
+                                    <div class="underline"></div>
+                                </div>
+                            </form>
+                        </td>
+                        <td class="rango">
+                            <form [formGroup]="tarea">
+                                <textarea formControlName="description" cols="30" rows="3"></textarea>
+                            </form>
+                        </td>
+                        <td class="rango">
+                            <mat-form-field [formGroup]="tarea">
+                                <mat-label>Fecha de nacimiento</mat-label>
+                                <input matInput [matDatepicker]="picker" formControlName="date">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </td>
+                        <td class="rango">
+                            <button class="btn btn-acciones" (click)="save()">Crear</button>
+                        </td>
+                    </tr>
+                    <tr *ngFor="let task of this.return">
+                        <td *ngIf="task.id != this.changeTask">{{task.name}}</td>
+                        <td *ngIf="task.id == this.changeTask">
+                            <form [formGroup]="changeTarea">
+                                <div class="input2-container">
+                                    <input type="text" id="input2" value="{{task.name}}" formControlName="name">
+                                    <div class="underline"></div>
+                                </div>
+                            </form>
+                        </td>
+                        <td *ngIf="task.id != this.changeTask">{{task.description}}</td>
+                        <td *ngIf="task.id == this.changeTask">
+                            <form [formGroup]="changeTarea">
+                                <div class="input2-container">
+                                    <input type="text" id="input2" value="{{task.description}}"
+                                        formControlName="description">
+                                    <div class="underline"></div>
+                                </div>
+                            </form>
+                        </td>
+                        <td *ngIf="task.id != this.changeTask">{{task.date}}</td>
+                        <td *ngIf="task.id == this.changeTask">
+                            <form [formGroup]="changeTarea">
+                                <div class="input2-container">
+                                    <input type="text" id="input2" value="{{task.date}}" formControlName="date">
+                                    <div class="underline"></div>
+                                </div>
+                            </form>
+                        </td>
+                        <td>
+                            <button *ngIf="task.id == this.changeTask" class="btn-accion" (click)="modificar(task.id)">
+                                <i class="fa-solid fa-check fa-lg"></i>
+                            </button>
+                            <button *ngIf="task.id != this.changeTask" class="btn-accion"
+                                (click)="verModificar(task.id)">
+                                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                            </button>
+                            <button *ngIf="task.id == this.changeTask" class="btn-accion" (click)="cancelModificar()">
+                                <i class="fa-solid fa-xmark fa-lg"></i>
+                            </button>
+                            <button *ngIf="task.id != this.changeTask" class="btn-accion" (click)="borrar(task.id)">
+                                <i class="fa-solid fa-trash fa-lg" style="color: #FF0800;"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

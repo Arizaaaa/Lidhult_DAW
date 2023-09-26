@@ -1,0 +1,374 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+.padre {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1 {
+    grid-area: 1 / 2 / 6 / 13;
+}
+
+.div2 {
+    grid-area: 3 / 2 / 5 / 4;
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.div3 {
+    grid-area: 2 / 1 / 6 / 13;
+    margin-top: 3%;
+}
+
+.div6 {
+    grid-area: 1 / 1 / 2 / 2;
+    justify-content: center;
+    width: 80%;
+    position: absolute;
+
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.containeer {
+    width: 100%;
+    padding-right: 0.938rem;
+    padding-left: 0.938rem;
+    margin-right: auto;
+    position: absolute;
+}
+
+
+.containeer>header {
+    margin: 0 auto;
+    padding: 0% 0% 5% 0%;
+    text-align: center;
+}
+
+.containeer>header h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 3em;
+    margin: 0;
+}
+
+.cont-titulo {
+    margin: 0% 6% 2% 0%;
+    text-align: -webkit-center;
+}
+
+#titulo {
+    font-size: 4.5vw;
+    background-color: white;
+    padding: 2%;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+    /* text-shadow: -1px 0 #414D68, 0 1px #414D68, 1px 0 #414D68, 0 -1px #414D68, 
+    -2px 2px 0 #414D68, 2px 2px 0 #414D68, 
+    1px 1px #414D68, 2px 2px #414D68, 3px 3px #414D68, 
+    4px 4px #414D68, 5px 5px #414D68, 6px 6px #414D68, 
+    7px 7px #414D68, 8px 8px #414D68, 9px 9px #414D68; */
+    text-transform: uppercase;
+    width: 32%;
+    border-radius: 100px;
+    border: 7px solid;
+}
+
+.wrapper {
+    line-height: 1.5em;
+    margin: 0 0em 0 12.5em;
+    padding: 2em 0 3em;
+    width: 77%;
+    max-width: 2000px;
+    overflow: hidden;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+}
+
+td,
+th {
+    border-bottom: 2px solid #ddd;
+    padding: 1em 1.5em;
+    text-align: center;
+}
+
+tbody th {
+    background-color: #2ea879;
+}
+
+/* tbody tr:nth-child(2n-1) {
+    background-color: #f5f5f5;
+    transition: all .125s ease-in-out;
+} */
+
+tbody tr:hover {
+    background-color: rgba(50, 98, 149, .3);
+}
+
+td.rango {
+    text-transform: capitalize;
+    position: relative;
+}
+
+.btn-entrar {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    border-radius: 30px;
+    border: 2px solid #282936;
+}
+
+button.learn-more {
+    width: 12rem;
+    height: auto;
+}
+
+button.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #282936;
+    border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #282936;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+button:hover .circle {
+    width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+    color: #fff;
+}
+
+.btn-unir {
+    border: none;
+    background-color: #282936;
+    border-radius: 0.9em;
+    padding: 0.8em 1.2em 0.8em 1em;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+}
+
+.btn-unir span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-unir:hover {
+    background-color: #09090c;
+}
+
+.btn-accion {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    padding: 3px;
+}
+
+.btn-accion:hover {
+    opacity: 0.5;
+}
+
+.btn-acciones {
+    color: #fff !important;
+    background-color: #282936;
+    border-color: #282936;
+}
+
+.btn-acciones:hover {
+    color: #fff !important;
+    background-color: #09090c;
+    border-color: #000000;
+}
+
+.flecha {
+    width: 50px;
+    height: 50px;
+}
+
+.fondo-flecha {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-bottom: 1%;
+}
+
+.modals {
+    position: fixed;
+    /* Stay in place */
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modals-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 1% 1% 1% 2%;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tooltip {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    opacity: 100% !important;
+    background: none;
+    border: none;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 10.625rem;
+    /* height: 110px; */
+    background-color: #3a3838;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 0.313rem 0;
+
+    position: absolute;
+    top: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 90%;
+}
+
+.fontsize {
+    font-size: 0.938rem;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.container-content {
+    padding: 0 5% 0 0;
+}
+
+.container-ul {
+    padding: 0 0 0 5%;
+    line-height: 140%;
+}
+
+.cont-insignias{
+    display: flex;
+    justify-content: center;
+}

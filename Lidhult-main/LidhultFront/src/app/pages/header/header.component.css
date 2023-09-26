@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,400;1,700&display=swap');
+
+/* Main */
+.spacer {
+  flex: 1 1 auto;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  user-select: none;
+}
+
+.padre {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 13;
+}
+
+/* .div2 {
+  grid-area: 2 / 1 / 5 / 2;
+  
+}
+
+.div3 {
+  grid-area: 2 / 2 / 5 / 13;
+  
+}
+
+.div4 {
+  grid-area: 5 / 1 / 6 / 13;
+}
+ */
+
+.wrapper {
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-radius: 0.4rem;
+}
+
+.wrapper .logo {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.wrapper span {
+  font-size: 2rem;
+  color: #eceff1;
+  text-decoration: none;
+}
+
+.menu .nav-links {
+  list-style: none;
+}
+
+.menu .nav-links li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.menu .nav-links li:hover {
+  transform: scale(1.1);
+}
+
+.menu .nav-links a {
+  font-size: 700;
+  color: #eceff1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menu .nav-links li a:hover {
+  color: #ffbc0e;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav #toggle,
+nav label {
+  display: none;
+}
+
+@media (max-width: 40.625em) {
+  nav .menu {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0;
+    gap: 1rem;
+  }
+
+  nav label {
+    display: inline-flex;
+    color: white;
+    cursor: pointer;
+  }
+
+  nav #toggle:checked~.menu {
+    height: 100%;
+  }
+}
+

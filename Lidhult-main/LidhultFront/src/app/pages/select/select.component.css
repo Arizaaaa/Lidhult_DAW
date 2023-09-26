@@ -1,0 +1,141 @@
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    user-select: none;
+}
+
+.padre {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div3 {
+    grid-area: 2 / 1 / 6 / 13;
+}
+
+.medio {
+    width: 45%;
+    margin: 0 auto;
+    text-align: center;
+    background: white;
+    padding-bottom: 10vh;
+    border-radius: 23px;
+    box-shadow: 0px 6px 5px 2px rgb(0 0 0 / 21%),
+
+        0px 3px 3px 0px rgb(0 0 0 / 15%),
+        0px 5px 6px 0px rgb(0 0 0 / 13%);
+
+}
+
+.btn:hover {
+    border-style: outset;
+    border-color: #2691d9;
+    transition: .5s
+}
+
+@media all and (max-width: 1980px) {
+    .display-flex {
+        gap: 7rem;
+        display: flex;
+        place-items: center;
+        justify-content: center;
+    }
+
+    .texto {
+        letter-spacing: 0.5px;
+        font-weight: 400;
+        font-family: 'Nunito', sans-serif;
+        font-size: 5rem;
+        line-height: 4;
+    }
+
+    .btn {
+        width: 300px;
+        height: 3.5rem;
+        border: 1px solid;
+        background: #2691d9;
+        border-radius: 25px;
+        font-size: 1.125rem;
+        color: #e9f4fb;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+    }
+}
+
+@media all and (max-width: 1730px) {
+    .display-flex {
+        gap: 5rem;
+        display: flex;
+        place-items: center;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 280px;
+    }
+}
+
+@media all and (max-width: 1530px) {
+    .display-flex {
+        gap: 2rem;
+        display: flex;
+        place-items: center;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 220px;
+    }
+}
+
+@media all and (max-width: 1130px) {
+    .display-flex {
+        display: flex;
+        place-items: center;
+        justify-content: center;
+    }
+
+    .texto {
+        letter-spacing: 0.5px;
+        font-weight: 400;
+        font-family: 'Nunito', sans-serif;
+        font-size: 4rem;
+
+        line-height: 4;
+    }
+
+    .btn {
+        width: 180px;
+    }
+}
+
+@media all and (max-width: 930px) {
+
+    .display-flex {
+        display: grid;
+        place-items: center;
+        justify-content: center;
+    }
+
+    .texto {
+        letter-spacing: 0.5px;
+        font-weight: 400;
+        font-family: 'Nunito', sans-serif;
+        font-size: 50px;
+
+        line-height: 4;
+    }
+
+    .btn {
+        width: 180px;
+    }
+}

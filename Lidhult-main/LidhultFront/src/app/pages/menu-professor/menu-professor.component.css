@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    user-select: none;
+}
+
+.padre {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1 {
+    grid-area: 1 / 2 / 6 / 13;
+}
+
+.div2 {
+    grid-area: 3 / 2 / 5 / 4;
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.div3 {
+    grid-area: 2 / 2 / 3 / 5;
+}
+
+.div4 {
+    grid-area: 4 / 2 / 6 / 4;
+}
+
+.div5 {
+    grid-area: 4 / 4 / 6 / 6;
+}
+
+.div6 {
+    grid-area: 1 / 1 / 2 / 2;
+    justify-content: center;
+    width: 80%;
+    position: absolute;
+
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.card-title {
+    margin-bottom: 0.75rem;
+    text-transform: capitalize;
+}
+
+.cont-titulo {
+    margin: 0% 6% 2% 0%;
+    text-align: -webkit-center;
+}
+
+#titulo {
+    font-size: 4.5vw;
+    background-color: white;
+    padding: 2%;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+    /* text-shadow: -1px 0 #414D68, 0 1px #414D68, 1px 0 #414D68, 0 -1px #414D68, 
+    -2px 2px 0 #414D68, 2px 2px 0 #414D68, 
+    1px 1px #414D68, 2px 2px #414D68, 3px 3px #414D68, 
+    4px 4px #414D68, 5px 5px #414D68, 6px 6px #414D68, 
+    7px 7px #414D68, 8px 8px #414D68, 9px 9px #414D68; */
+    text-transform: uppercase;
+    width: 32%;
+    border-radius: 100px;
+    border: 7px solid;
+}
+
+.btn-accion {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    padding: 3px;
+}
+
+.btn-accion:hover {
+    opacity: 0.5;
+}
+
+.btn-input {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.input-btn {
+    margin-bottom: 5%;
+}
+
+.input-edit {
+    width: 95%;
+}
+
+.btn-acciones {
+    color: #fff !important;
+    background-color: #282936;
+    border-color: #282936;
+}
+
+.btn-acciones:hover {
+    color: #fff !important;
+    background-color: #09090c;
+    border-color: #000000;
+}
+
+.btn-crear {
+    border: none;
+    /* background-color: #0a83f9; */
+    background-color: #282936;
+    border-radius: 0.9em;
+    padding: 0.8em 1.2em 0.8em 1em;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+}
+
+.btn-crear span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-crear:hover {
+    /* background-color: #0071e2; */
+    background-color: #09090c;
+}
+
+.flecha {
+    width: 50px;
+    height: 50px;
+}
+
+.fondo-flecha {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-bottom: 1%;
+}

@@ -1,0 +1,29 @@
+<meta name="keywords"
+    coontent="competencia, clasificación, nivel, posición, puntaje, rendimiento, éxito,calificaciones, evaluaciones, notas, resultados, logros, desempeño, deberes, ejercicios, trabajos, actividades, proyectos, asignaciones, maestros, instructores, docentes, mentores, tutores, capacitadores,estudiantes, aprendices, cursantes, aspirantes, discípulos, usuarios, cursos, lecciones, materias, asignaturas, programas, planes de estudio,líder, campeón, mejor, superior, sobresaliente, destacado, exámenes, pruebas, certificaciones, diplomas, acreditaciones, titulaciones, desafíos, objetivos, metas, retos, proyectos finales, trabajos prácticos, expertos, especialistas, formadores, consultores, conferencistas, instructores virtuales, capacitación, aprendizaje, educación, desarrollo, crecimiento, superación, tutorías, seminarios, talleres, conferencias, webinars, lecciones en video">
+
+<div class="padre">
+    <div class="div3">
+        <div class="containeer">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nick Alumno</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let request of this.solicitudes">
+                        <td class="rango">{{request.nick}}</td>
+                        <td class="rango">
+                            <div style="display: flex;
+                            justify-content: space-evenly;">
+                                <button class="btn btn-acciones" (click)="denegar(request.id)">Denegar</button>
+                                <button class="btn btn-acciones" (click)="aceptar(request.id)">Aceptar</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

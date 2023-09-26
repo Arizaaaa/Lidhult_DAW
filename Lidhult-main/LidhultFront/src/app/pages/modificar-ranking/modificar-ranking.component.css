@@ -1,0 +1,278 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+.padre {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div3 {
+    grid-area: 2 / 1 / 6 / 13;
+    position: absolute;
+    margin-top: 3%;
+}
+
+.containeer {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+}
+
+.containeer>header {
+    margin: 0 auto;
+    padding: 1em;
+    text-align: center;
+}
+
+.containeer>header h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 3em;
+    margin: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+}
+
+td,
+th {
+    border-bottom: 2px solid #ddd;
+    padding: 1em 1.5em;
+    text-align: center;
+}
+
+tbody th {
+    background-color: #2ea879;
+}
+
+tbody tr:nth-child(2n-1) {
+    /* background-color: #f5f5f5; */
+    transition: all .125s ease-in-out;
+}
+
+tbody tr:hover {
+    background-color: rgba(50, 98, 149, .3);
+}
+
+td.rango {
+    text-transform: capitalize;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out, 
+    background-color .15s ease-in-out, 
+    border-color .15s ease-in-out, 
+    box-shadow .15s ease-in-out;
+}
+
+.btn-containeer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn-accion {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    padding: 3px;
+}
+
+.btn-accion:hover {
+    opacity: 0.5;
+}
+
+.btn-acciones {
+    color: #fff !important;
+    background-color: #282936;
+    border-color: #282936;
+}
+
+.btn-acciones:hover {
+    color: #fff !important;
+    background-color: #09090c;
+    border-color: #000000;
+}
+
+.info,
+.warning {
+    border: 1px solid;
+    margin: 10px 10px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('https://i.imgur.com/Z8q7ww7.png');
+}
+
+/* Hide the default checkbox */
+.container input {
+  display: none;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background-color: #2196F300;
+  border-radius: 0.25em;
+  transition: all 0.25s;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  transform: rotate(0deg);
+  border: 0.1em solid black;
+  left: 0;
+  top: 0;
+  width: 1.05em;
+  height: 1.05em;
+  border-radius: 0.25em;
+  transition: all 0.25s, border-width 0.1s;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+     left: 0.45em;
+    top: 0.25em;
+    width: 0.38em;
+    height: 0.6em;
+    border-color: #fff0 white white #fff0;
+    border-width: 0 0.15em 0.15em 0;
+    border-radius: 0em;
+    transform: rotate(45deg);
+}
+  
+  /* Input puntuacion */
+
+  .input {
+    line-height: 28px;
+    border: 2px solid transparent;
+    border-bottom-color: #fff;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: #0d0c22;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+   }
+   
+   .input:focus, .input:hover {
+    outline: none;
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border-color: #fff;
+   }
+   
+   .input::placeholder {
+    color: #fff;
+   }
+   
+   .input:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+   }
+   
+/* Input tabla */
+
+.input2-container {
+    position: relative;
+  }
+  
+  .input2-container input[type="number"] {
+    font-size: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #fff;
+    padding: 5px 0;
+    background-color: transparent;
+    outline: none;
+  }
+  
+  .input2-container .label2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .input2-container input[type="number"]:focus ~ .label2,
+  .input2-container input[type="number"]:valid ~ .label2 {
+    top: -13px;
+    font-size: 16px;
+    color: #ccc;
+  }
+  
+  .input2-container .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+  }
+  
+  .input2-container input[type="number"]:focus ~ .underline,
+  .input2-container input[type="number"]:valid ~ .underline {
+    transform: scaleX(1);
+  }
