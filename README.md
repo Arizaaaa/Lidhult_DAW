@@ -7,7 +7,7 @@ Proyecto de DAW
 
    Esta versión del código es funcional pero prematura ya que faltan ideas por implementar.
 
-   Para empezar con la web deberá utilizar lo siguientes comando:
+   Para empezar con la web deberá utilizar los siguientes comando:
    
    php artisan serve   //Iniciar el servicio de Laravel
    php artisan migrate   //Migrar la base de datos
